@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 public class ProviderDealerReducer extends Reducer<ProviderDealer, StatsCounterTuple, ProviderDealer, StatsCounterTuple>{
 
-	private static final Logger logger = LogManager.getLogger(ProviderDealerMapper.class);
+	private static final Logger logger = LogManager.getLogger(ProviderDealerReducer.class);
 	
 	@Override
 	protected void reduce(ProviderDealer key,
