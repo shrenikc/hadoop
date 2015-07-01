@@ -31,15 +31,15 @@ public class VehicleStats extends Configured implements Tool {
             return 1;
         }
         
-        Job job = new Job(getConf(), "WordCount");
+        Job job = new Job(getConf(), "VehicleStats");
         job.setJarByClass(getClass());
         
         job.setMapperClass(ProviderDealerMapper.class);
-        job.setCombinerClass(IntSumReducer.class);
-        job.setReducerClass(IntSumReducer.class);
+        job.setCombinerClass(ProviderDealerReducer.class);
+        job.setReducerClass(ProviderDealerReducer.class);
         
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputKeyClass(ProviderDealer.class);
+        job.setOutputValueClass(StatsCounterTuple.class);
         
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
